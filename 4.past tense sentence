@@ -1,0 +1,22 @@
+import re
+
+
+verb_rules = [
+    (r'walks?', 'walked'),  
+    (r'jumps?', 'jumped')  
+]
+
+def parse_sentence(sentence):
+    
+    for present, past in verb_rules:
+        sentence = re.sub(present, past, sentence)
+    return sentence
+
+
+sentences = ["She walked to the park yesterday", "He jumped over the fence"]
+
+
+for sentence in sentences:
+    past_tense_sentence = parse_sentence(sentence)
+    print(f"Original: {sentence}")
+    print(f"Past Tense: {past_tense_sentence}\n")
