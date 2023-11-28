@@ -1,0 +1,35 @@
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+def stochastic_pos_tagging(sentence):
+    
+    words = word_tokenize(sentence)
+
+   
+    pos_tags = pos_tag(words)
+
+    return pos_tags
+
+
+if __name__ == "__main__":
+    
+    sentence1 = "The red car stopped at the traffic light"
+    sentence2 = "She quickly ran to catch the bus"
+
+   
+    pos_tags1 = stochastic_pos_tagging(sentence1)
+    pos_tags2 = stochastic_pos_tagging(sentence2)
+
+
+    
+    print("Original Sentence 1:", sentence1)
+    print("Stochastic Part-of-Speech Tags 1:")
+    print(pos_tags1)
+
+    print("\nOriginal Sentence 2:", sentence2)
+    print("Stochastic Part-of-Speech Tags 2:")
+    print(pos_tags2)
