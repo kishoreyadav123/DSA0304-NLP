@@ -1,0 +1,27 @@
+import nltk
+nltk.download('punkt')
+
+
+def equal_0s_1s_nlp(sentence):
+    tokens = nltk.word_tokenize(sentence)
+    joined_string = ''.join(tokens)  # Join tokens to form a string
+
+    state = 0
+
+    for char in joined_string:
+        if char == '0':
+            state += 1
+        elif char == '1':
+            state -= 1
+
+        
+        if state < 0:
+            return False
+
+   
+    return state == 0
+
+
+test_sentence = "There are 101 people in the room, and 010 of them have left."
+result = equal_0s_1s_nlp(test_sentence)
+print(f"The sentence has an equal number of '0's and '1's: {result}")
